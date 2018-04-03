@@ -1,9 +1,6 @@
 # Simple AdBlocker for Samsung (notSABS)
 [![Logo](https://imgur.com/fNCaCMl.png "notSABS")](https://github.com/GoldenKappa/notSABS/releases)
 
-[![forthebadge](http://forthebadge.com/images/badges/gluten-free.svg)](http://forthebadge.com)
-[![forthebadge](http://forthebadge.com/images/badges/powered-by-electricity.svg)](http://forthebadge.com)
-
 ## [Download](https://github.com/GoldenKappa/notSABS/releases)
 ## [Alt Download](https://zozzle.co.uk/download/notSABS.zip)
 
