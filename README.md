@@ -87,7 +87,8 @@ Assuming you haven't uninstall Android Studio, follow the steps below.
 
 ##### B - With your phone
 1. Download the latest version (apk file) [here](https://github.com/GoldenKappa/notSABS/releases).
-2. Open "APK Editor Pro" app.
+2. Open [APK Editor Pro](www.apkeditorfree.com) app.
+) app.
 3. Select apk file (previously downloaded).
 4. Select "Common edit".
 5. Edit only the field "Package name"! as shown [here](https://i.imgur.com/Jn7eu2O.png).
