@@ -53,7 +53,7 @@ You can choose to change a package name of the app with or without a computer. B
 ##### B - With your phone
 The are multiple ways to change the package name of the app. Following guide focuses on editing the package name with "APK Editor Pro" app. You can also use different apps such as App Cloner or Lucky Patcher (keep in mind that using other features of Lucky Patcher might be illegal!) but select to only edit Manifest file.
 1. Download the latest version (apk file) [here](https://github.com/GoldenKappa/notSABS/releases).
-2. Open "APK Editor Pro" app.
+2. Open [APK Editor Pro](www.apkeditorfree.com) app.
 3. Select apk file (previously downloaded).
 4. Select "Common edit".
 5. Edit only the field "Package name"! as shown [here](https://i.imgur.com/Jn7eu2O.png).
