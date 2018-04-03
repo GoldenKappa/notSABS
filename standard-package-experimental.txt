@@ -1,0 +1,2 @@
+#This is an experimental package. After testing, default standard package is updated with domains from here. To use experimental package alongside the standard package, open up SABS > Settings > Manage blocked domains > Subscribe to providers > in the text field paste this:
+# https://raw.githubusercontent.com/LayoutXML/SABS/master/standard-package-experimental.txt

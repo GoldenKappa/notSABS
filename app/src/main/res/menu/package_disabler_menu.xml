@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_search"
+        android:icon="?attr/ic_action_search"
+        app:showAsAction="always|collapseActionView"
+        app:actionViewClass="android.support.v7.widget.SearchView"
+        android:title="@string/app_name_hint"/>
+    <item
+        android:id="@+id/action_pack_dis_sort"
+        android:icon="?ic_sort"
+        android:orderInCategory="100"
+        android:title="@string/sort"
+        app:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/sort_alphabetically_item"
+                android:title="@string/sort_by_alphabet" />
+            <item
+                android:id="@+id/sort_by_time_item"
+                android:title="@string/sort_by_install_time" />
+            <item
+                android:id="@+id/sort_disabled_item"
+                android:title="@string/sort_by_disabled" />
+        </menu>
+    </item>
+    <item
+        android:icon="?ic_more_vert"
+        android:orderInCategory="100"
+        android:title="@string/options"
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:id="@+id/disabler_import_storage"
+                android:title="@string/disabler_import_storage" />
+            <item
+                android:id="@+id/disabler_export_storage"
+                android:title="@string/disabler_export_storage" />
+            <item
+                android:id="@+id/disabler_share"
+                android:title="@string/disabler_share" />
+            <item
+                android:id="@+id/disabler_enable_all"
+                android:title="@string/disabler_enable_all" />
+            <item
+                android:id="@+id/settings_in_options"
+                android:title="@string/settings" />
+        </menu>
+    </item>
+</menu>

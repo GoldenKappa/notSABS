@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:icon="@drawable/ic_block"
+        android:enabled="true"
+        android:id="@+id/blockerTab"
+        android:title="@string/blocker_fragment_title"/>
+    <item
+        android:icon="@drawable/ic_apps"
+        android:enabled="true"
+        android:id="@+id/packageDisablerTab"
+        android:title="@string/package_disabler_bottombar_title"/>
+    <item
+        android:icon="@drawable/ic_lock_outline"
+        android:enabled="true"
+        android:id="@+id/appPermissionsTab"
+        android:title="@string/app_permissions_tab_title"/>
+</menu>

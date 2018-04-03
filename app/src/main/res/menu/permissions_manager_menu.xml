@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_restore_perms"
+        android:icon="?attr/ic_action_restore"
+        android:orderInCategory="100"
+        android:title="@string/restore_permissions"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/action_app_settings"
+        android:icon="?attr/ic_settings"
+        android:orderInCategory="101"
+        android:title="@string/settings"
+        app:showAsAction="ifRoom"/>
+</menu>

@@ -1,0 +1,101 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:colorEdgeEffect">@color/colorAccent</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+    <style name="MainAppTheme" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <item name="windowActionBar">true</item>
+        <item name="windowNoTitle">false</item>
+        <item name="android:colorEdgeEffect">@color/colorAccent</item>
+        <item name="ic_settings" >@drawable/ic_settings</item>
+        <item name="ic_action_search">@drawable/ic_action_search</item>
+        <item name="ic_action_save">@drawable/ic_action_save</item>
+        <item name="ic_action_change_days">@drawable/ic_action_change_days</item>
+        <item name="ic_more_vert">@drawable/ic_more_vert</item>
+        <item name="ic_sort">@drawable/ic_sort</item>
+        <item name="ic_action_restore">@drawable/ic_action_restore</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+    <style name="MainAppThemeDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <item name="windowActionBar">true</item>
+        <item name="windowNoTitle">false</item>
+        <item name="android:colorEdgeEffect">@color/colorAccent</item>
+        <item name="ic_settings" >@drawable/ic_settings</item>
+        <item name="ic_action_search">@drawable/ic_action_search</item>
+        <item name="ic_action_save">@drawable/ic_action_save</item>
+        <item name="ic_action_change_days">@drawable/ic_action_change_days</item>
+        <item name="ic_more_vert">@drawable/ic_more_vert</item>
+        <item name="ic_sort">@drawable/ic_sort</item>
+        <item name="ic_action_restore">@drawable/ic_action_restore</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+    <style name="BlackAppTheme" parent="ThemeOverlay.AppCompat">
+        <item name="colorPrimary">@color/colorAccent</item>
+        <item name="colorPrimaryDark">@color/colorAccent</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+        <item name="windowActionBar">true</item>
+        <item name="windowNoTitle">false</item>
+        <item name="android:colorEdgeEffect">@color/colorPrimary</item>
+        <item name="android:textColorPrimary">@color/colorPrimary</item>
+        <item name="android:color">@color/colorPrimary</item>
+        <item name="android:windowBackground">@color/colorAccent</item>
+        <item name="android:navigationBarColor">@color/colorAccent</item>
+        <item name="android:actionBarStyle">@color/colorAccent</item>
+        <item name="ic_settings" >@drawable/ic_settings_dark</item>
+        <item name="ic_action_search">@drawable/ic_action_search_dark</item>
+        <item name="ic_action_save">@drawable/ic_action_save_dark</item>
+        <item name="ic_action_change_days">@drawable/ic_action_change_days_dark</item>
+        <item name="ic_more_vert">@drawable/ic_more_vert_dark</item>
+        <item name="ic_sort">@drawable/ic_sort_dark</item>
+        <item name="ic_action_restore">@drawable/ic_action_restore_dark</item>
+        <item name="colorSwitchThumbNormal">@color/colorPrimary</item>
+        <item name="android:colorForeground">@color/colorPrimary</item>
+        <item name="android:textColorHint">@color/grey</item>
+        <item name="android:itemBackground">@color/colorAccent</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+    <style name="BlackAppThemeDialog" parent="ThemeOverlay.AppCompat.Dialog.Alert">
+        <item name="colorPrimary">@color/colorAccent</item>
+        <item name="colorPrimaryDark">@color/colorAccent</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+        <item name="windowActionBar">true</item>
+        <item name="windowNoTitle">false</item>
+        <item name="android:colorEdgeEffect">@color/colorPrimary</item>
+        <item name="android:textColorPrimary">@color/colorPrimary</item>
+        <item name="android:color">@color/colorPrimary</item>
+        <item name="android:windowBackground">@color/colorAccent</item>
+        <item name="android:navigationBarColor">@color/colorAccent</item>
+        <item name="android:actionBarStyle">@color/colorAccent</item>
+        <item name="ic_settings" >@drawable/ic_settings_dark</item>
+        <item name="ic_action_search">@drawable/ic_action_search_dark</item>
+        <item name="ic_action_save">@drawable/ic_action_save_dark</item>
+        <item name="ic_action_change_days">@drawable/ic_action_change_days_dark</item>
+        <item name="ic_more_vert">@drawable/ic_more_vert_dark</item>
+        <item name="ic_sort">@drawable/ic_sort_dark</item>
+        <item name="ic_action_restore">@drawable/ic_action_restore_dark</item>
+        <item name="colorSwitchThumbNormal">@color/colorPrimary</item>
+        <item name="android:colorForeground">@color/colorPrimary</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+</resources>

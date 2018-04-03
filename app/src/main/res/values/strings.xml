@@ -1,0 +1,183 @@
+<resources>
+    <string name="app_name" translatable="false">SABS</string>
+    <string name="loading">Loading…</string>
+    <string name="recent_activity">Recent activity</string>
+    <string name="isSupported">Loading…</string>
+    <string name="block_enabled">SABS is on.</string>
+    <string name="block_disabled">SABS is off.</string>
+    <string name="enabling_sabs">Enabling SABS.</string>
+    <string name="disabling_sabs">Disabling SABS.</string>
+    <string name="app_not_supported">App isn\'t supported on your device. If your device is not rooted and is made by Samsung, report this to developer.</string>
+    <string name="steps_to_enable_reminder">1. Press activate.
+        \n2. Paste your Knox standard SDK enterprise key below. If you don\'t have one, sign in here - https://seap.samsung.com/enrollment, and get your <b>Enterprise</b> key here - https://seap.samsung.com/license-keys. It should be 128 bytes and not start with letters KLM.</string>
+    <string name="turn_on_admin">Activate</string>
+    <string name="activate_knox">Activate Knox</string>
+    <string name="no_internet_connection">No internet connection. Please turn on Wi-Fi or mobile data and restart the app.</string>
+    <string name="activating_knox_license">Activating…</string>
+    <string name="block_button_text_turn_off">Turn Off</string>
+    <string name="block_button_text_turn_on">Turn On</string>
+    <string name="block_button_text_enabling">Enabling…</string>
+    <string name="block_button_text_disabling">Disabling…</string>
+    <string name="edit_blocked_url_list">Manage blocked domains</string>
+    <string name="whitelistInfo">Consider whitelisting the app first. You can\'t whitelist wildcards. Enter a valid domain name only. Press on a name to remove it. After whitelisting, turn blocking off then on.</string>
+    <string name="edit_blocked_apps_list">Manage blocking in apps</string>
+    <string name="delete_app">Uninstall SABS</string>
+    <string name="delete_app_dialog_title">Delete app</string>
+    <string name="delete_app_dialog_text">Do you really want to turn off and delete SABS?</string>
+    <string name="settings">Settings</string>
+    <string name="change_dns_button">Change DNS</string>
+    <string name="dns_1_address">DNS 1 Address</string>
+    <string name="dns_2_address">DNS 2 Address</string>
+    <string name="set_dns_button_text">Set DNS</string>
+    <string name="cancel_text">Cancel</string>
+    <string name="restore_defaults">Restore Defaults</string>
+    <string name="zero_dns" translatable="false">0.0.0.0</string>
+    <string name="example_com" translatable="false">example.com</string>
+    <string name="block">Block</string>
+    <string name="allow_custom_urls">Whitelist domains</string>
+    <string name="allow">Allow</string>
+    <string name="block_custom_urls">Blacklist domains</string>
+    <string name="blacklistInfo">Enter a valid domain name only. Press on a name to remove it. After blacklisting, turn blocking off then on.</string>
+    <string name="download_manager_sharedPrefs" translatable="false">download_manager_sharedPrefs</string>
+    <string name="download_manager_reference_id" translatable="false">download_manager_reference_id</string>
+    <string name="blocker_fragment_title">Blocker</string>
+    <string name="package_disabler_fragment_title">Package disabler</string>
+    <string name="package_disabler_bottombar_title">Disabler</string>
+    <string name="app_support_fragment_title">Donate</string>
+    <string name="loading_saved_dns">Loading saved DNS addresses</string>
+    <string name="check_input_dns">Check your input data</string>
+    <string name="enable_app_for_dns">Domain blocking must be on</string>
+    <string name="changed_dns">DNS addresses have been changed"</string>
+    <string name="restored_dns">DNS addresses have been restored</string>
+    <string name="help_developers_to_keep_up_development" translatable="false">
+        Well, I\'m not even in college yet.
+        \nIt would be nice to have a spare dollar in the future.
+    </string>
+    <string name="add_provider">Add new</string>
+    <string name="error_reading_url">Error reading URL</string>
+    <string name="error_reading_number">Error reading number</string>
+    <string name="subscribe_to_providers">Subscribe to providers</string>
+    <string name="delete_url">Delete URL</string>
+    <string name="update_all_providers">Update All</string>
+    <string name="error_reading_date">Error reading date</string>
+    <string name="app_list_sorted_by_date">Sorted by installation date</string>
+    <string name="app_list_sorted_by_alphabet">Sorted alphabetically</string>
+    <string name="subscribe">Subscribe for {{price}} per month</string>
+    <string name="subscribe_three_month">Subscribe for {{price}} per 3 month with 20% discount</string>
+    <string name="subscribeInfo">You can add more domain (hosts) list URLs. It must only include domain names, and comments in lines starting with #. Other lines may break SABS. After adding an URL, updating a file or (un)checking a box, turn blocking off then on.</string>
+    <string name="ads_example_com" translatable="false">example.com</string>
+    <string name="your_device_running_old_knox_version">Your device is running an old version of KNOX. Upgrade your device or perform an update. Otherwise, you may experience crashes on certain functions.</string>
+    <string name="adblock_whitelist">Whitelisted Apps</string>
+    <string name="application_icon">App Icon</string>
+    <string name="sort_by_alphabet">Sort Alphabetically</string>
+    <string name="sort_by_install_time">Sort by Install Date</string>
+    <string name="sort_by_disabled">Show Disabled First</string>
+    <string name="disabler_import_storage">Import disabled apps list</string>
+    <string name="disabler_export_storage">Export disabled apps lis</string>
+    <string name="disabler_enable_all">Enable All Apps</string>
+    <string name="imported_from_storage">Importing disabled apps list from storage</string>
+    <string name="exported_to_storage">Disabled apps list exported to sabs.txt</string>
+    <string name="enabled_all_disabled">Enabling all disabled apps</string>
+    <string name="app_list_sorted_by_disabled">Disabled apps are shown first</string>
+    <string name="app_profiles_tab_title">Profiles</string>
+    <string name="app_permissions_tab_title">Permissions</string>
+    <string name="profiles_explanation">Unexpected error. You aren\'t supposed to see this screen.</string>
+    <string name="blog">Blog</string>
+    <string name="about_title">About</string>
+    <string name="icon_image">Icon Image</string>
+    <string name="app_name_error">Error reading app name</string>
+    <string name="app_name_hint">Search</string>
+    <string name="url">url</string>
+    <string name="turn_on_dialog_title">Activate app</string>
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+
+    <string name="slide_1_title">Welcome!</string>
+    <string name="slide_1_desc">Simple adblocker for Samsung will let you block ads, websites, permissions and more! \nMost imporantly - it\'s <b>free</b> and <b>open source</b>.
+    \n\nFor SABS to work you need to either change the package name in Manifest file or compile app with a changed package name yourself. Check out how to do it here: https://github.com/LayoutXML/SABS#setup</string>
+
+    <string name="slide_2_title">KNOX Tools</string>
+    <string name="slide_2_desc">SABS uses Samsung\'s KNOX tools to block ads system-wide without running in background! KNOX SDK requires administrative permissions and you will be asked to grant them soon.</string>
+
+    <string name="slide_3_title">Get your free license key</string>
+    <string name="slide_3_desc">You need to generate a license key first. Go to https://seap.samsung.com/enrollment and sign in with your Samsung account. Then go to https://seap.samsung.com/license-keys/create#section-knox-standard-sdk and generate a key as shown in the picture.
+\n1. Go to \“Legacy SDKs\”
+\n2. Go to \”Knox Standard SDK\”
+\n3. Select \”Enterprise\”
+\n4. Write any word as alias name
+\n5. Press generate
+\n Copy your key and be ready to paste it. If your key starts with letters \"KLM\" - you have generated the wrong key.
+</string>
+
+    <string name="slide_4_title">You are ready!</string>
+    <string name="slide_4_desc">Remember - if license activation fails a couple of times, uninstall and reinstall the app.
+    \nIf you think that SABS isn\'t blocking any ads - check in recent activity. If you\'re right - turn off all adblockers (SABS, Adhell, Disconnect etc), turn on blocking in SABS and wait a minute. Then, if you want you can activate all your other apps as well.</string>
+
+    <string name="settings_edit_url_small">Add, remove websites, subscribe to providers</string>
+    <string name="change_dns_menu_small">Set DNS Address 1 and DNS Address 2</string>
+    <string name="allow_apps_menu_small">Turn off blocking in apps where you want to see ads</string>
+    <string name="info_settings_menu">About</string>
+    <string name="author">Author: LayoutXML</string>
+    <string name="reddit">Reddit: <u><b>u/LayoutXML</b></u></string>
+    <string name="github"><u><b>github.com/LayoutXML/SABS</b></u></string>
+    <string name="error_version">Error reading version number and version code</string>
+    <string name="knox_key">Knox Key</string>
+    <string name="submit_knox_key">Submit Knox Key</string>
+    <string name="copy_knox_key">Copy Knox key</string>
+    <string name="standard_package_name">Standard package</string>
+    <string name="whitelist_settings_small">Unblock a website if you want to see its ads or if it fails to work when blocking is enabled.</string>
+    <string name="blacklist_settings_small">Block websites that serve ads not already blocked by your current providers</string>
+    <string name="subscribe_settings_small">Add links to lists of ad serving domains</string>
+    <string name="summary">Summary</string>
+    <string name="summary_small">Simple Ad Blocker for Samsung (SABS) is an adblocker with extra functionality that is maintained by LayoutXML. It is based on Adhell open source project.</string>
+    <string name="version">Check for updates</string>
+    <string name="send_feedback">Send feedback</string>
+    <string name="source_code_github">Source code (Github)</string>
+    <string name="licenses">Licenses</string>
+    <string name="licenses_small">Press to see all licenses</string>
+    <string name="system">System app</string>
+    <string name="system_not">User app</string>
+    <string name="about_settings_small">Version, author, source code</string>
+    <string name="reload">Reload</string>
+    <string name="sort">Sort</string>
+    <string name="options">Options</string>
+    <string name="steps_to_enable_reminder_error_KLM">Paste your 128-byte Knox standard SDK Enterprise key below.  It should not start with letters KLM.</string>
+    <string name="lock_dialog_Title">Warning</string>
+    <string name="lock_dialog_body">Some actions may make your system unstable. To prevent any changes to get applied, select \"Uninstall SABS\" in <b>app settings!</b> Otherwise, the changes to the system will be applied. This screen is shown so that you don\'t change anything inadvertently while your phone is in your pocket. You can disable this warning in the Settings screen</string>
+    <string name="ok">OK</string>
+    <string name="exit">exit</string>
+    <string name="undo">UNDO</string>
+    <string name="package_name">Copy package name</string>
+    <string name="error_packagename">Unable to get package name</string>
+    <string name="disabler_share">Share disabled app list</string>
+    <string name="logo">Logo</string>
+    <string name="miscellaneous">Miscellaneous</string>
+    <string name="miscellaneousDesc">Other settings that didn\'t fit any category</string>
+    <string name="delete_app_desc">Turn off blocking and uninstall app.</string>
+    <string name="misc_settings">Miscellaneous</string>
+    <string name="show_warning">Show warning</string>
+    <string name="show_warning_desc">Show warning on app start-up to prevent accidental presses while phone is in the pocket</string>
+    <string name="use_black_theme">Use black theme</string>
+    <string name="use_black_theme_desc">Set the theme to AMOLED black and restart the app</string>
+    <string name="block_port_53">Block Port 53</string>
+    <string name="block_port_53_desc">Block Port 53 on Chrome (Stable, Canary, Beta, Dev) so that ads can be blocked on these apps. After changing value, turn blocking off and on</string>
+    <string name="miscblockall_desc">Block Port 53 in all apps (not recommended)</string>
+    <string name="experimental_package">Experimental package</string>
+    <string name="mmottis_package">mmotti\'s package</string>
+    <string name="donate_dialog_title">Donate?</string>
+    <string name="donate_dialog_message">If you like SABS, you can donate to LayoutXML on Paypal or Google Play. Would you like to do it?</string>
+    <string name="donate">Donate</string>
+    <string name="donateDesc">Support the development of SABS</string>
+    <string name="summary_donate">You can donate to LayoutXML by buying support app on Google Play or on Paypal. I\'m a student who is about to go to university. Every dollar helps.</string>
+    <string name="donate_gp">Google Play</string>
+    <string name="donate_gp_desc">You can buy an app on Google Play that does nothing</string>
+    <string name="donate_pp">Paypal</string>
+    <string name="donate_pp_desc">You can donate your desired sum of money on Paypal</string>
+    <string name="action_export_hint">Export unique blocked domains</string>
+    <string name="action_change_days_hint">Change shown time</string>
+    <string name="force_stop_theme_store">Force stop Theme Store</string>
+    <string name="force_stop_theme_store_desc">Prevent theme store from being launched to allow custom themes from XDA</string>
+    <string name="restore_permissions">Restore permissions</string>
+    <string name="restore_permissions_message">Do you really want to restore all permissions?</string>
+</resources>
