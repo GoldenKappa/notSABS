@@ -11,6 +11,9 @@ SABS is a system-wide, rootless AdBlocker, package disabler, permission manager 
 [![Screenshot2](https://imgur.com/EZPirSP.png)](https://github.com/GoldenKappa/notSABS/releases)
 [![Screenshot3](https://i.imgur.com/4X3o9CR.png)](https://github.com/GoldenKappa/notSABS/releases)
 
+## Donate
+You can now donate to the LayoutXML on **[Google Play](https://play.google.com/store/apps/details?id=com.layoutxml.support)** or **[PayPal](https://www.paypal.me/RJankunas)**. I'm a school student who is about to go to university. Every dollar helps.
+
 ## Table of contents
 * [Setup](https://github.com/GoldenKappa/notSABS#setup)
 * [Issues](https://github.com/GoldenKappa/notSABS#issues)
