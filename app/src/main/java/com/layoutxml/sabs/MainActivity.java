@@ -60,9 +60,8 @@ import static com.layoutxml.sabs.Global.BlockedUniqueUrls;
 
 
 public class MainActivity extends AppCompatActivity {
-    public static final String ADHELL_STANDARD_PACKAGE = "https://raw.githubusercontent.com/LayoutXML/SABS/master/standard-package.txt";
-    public static final String SABS_EXPERIMENTAL_PACKAGE = "https://raw.githubusercontent.com/LayoutXML/SABS/master/standard-package-experimental.txt";
-    public static final String SABS_MMOTTI_PACKAGE = "https://raw.githubusercontent.com/LayoutXML/SABS/master/standard-package-mmotti.txt";
+    public static final String PACKAGE = "https://raw.githubusercontent.com/LayoutXML/SABS-Package/master/package.txt";
+    public static final String SABS_MMOTTI_PACKAGE = "https://raw.githubusercontent.com/mmotti/mmotti-host-file/master/wildcard_standard_hosts.txt";
     private static final String TAG = MainActivity.class.getCanonicalName();
     private static final String BACK_STACK_TAB_TAG = "tab_fragment";
     protected DeviceAdminInteractor mAdminInteractor;
@@ -103,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
         Boolean askedDonate = sharedPreferences.getBoolean("donate", false);
         BlockPort53 = sharedPreferences.getBoolean("blockPort53", true);
         BlockPortAll = sharedPreferences.getBoolean("blockPortAll", false);
-        if (BlockedUniqueUrls==0)
+        if (BlockedUniqueUrls==-1)
             BlockedUniqueUrls = sharedPreferences.getInt("blockedUrls", 0);
         if (blackTheme)
             setTheme(R.style.BlackAppTheme);
@@ -325,11 +324,8 @@ public class MainActivity extends AppCompatActivity {
 
     public static void updateBlockCount() {
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        if (BlockedUniqueUrls!=0)
-        {
-            editor.putInt("blockedUrls", BlockedUniqueUrls);
-            editor.apply();
-        }
+        editor.putInt("blockedUrls", BlockedUniqueUrls);
+        editor.apply();
     }
 
     public void showDialog() {

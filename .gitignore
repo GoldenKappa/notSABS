@@ -10,3 +10,4 @@
 *.apk
 fabric.properties
 app/release
+app/src/main/res/raw/third_party_licenses

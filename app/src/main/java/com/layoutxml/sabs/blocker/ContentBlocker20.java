@@ -107,7 +107,7 @@ public class ContentBlocker20 implements ContentBlocker {
     private List<String> getDenyUrl() {
         Log.d(LOG_TAG, "Entering prepareUrls");
         BlockUrlProvider standardBlockUrlProvider =
-                appDatabase.blockUrlProviderDao().getByUrl(MainActivity.ADHELL_STANDARD_PACKAGE);
+                appDatabase.blockUrlProviderDao().getByUrl(MainActivity.PACKAGE);
         List<BlockUrl> standardList = appDatabase.blockUrlDao().getUrlsByProviderId(standardBlockUrlProvider.id);
         List<UserBlockUrl> userBlockUrls = appDatabase.userBlockUrlDao().getAll2();
 

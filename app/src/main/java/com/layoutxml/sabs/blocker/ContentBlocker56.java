@@ -48,9 +48,7 @@ public class ContentBlocker56 implements ContentBlocker {
     @Inject
     AppDatabase appDatabase;
 
-    private ContentBlocker56() {
-        App.get().getAppComponent().inject(this);
-    }
+    private ContentBlocker56() {App.get().getAppComponent().inject(this);}
 
     public static ContentBlocker56 getInstance() {
         if (mInstance == null) {
@@ -65,6 +63,9 @@ public class ContentBlocker56 implements ContentBlocker {
         }
         return mInstance;
     }
+
+    // Initiate the firewall interface
+    fwInterface FW = new fwInterface();
 
     @Override
     public boolean enableBlocker() {
@@ -103,7 +104,7 @@ public class ContentBlocker56 implements ContentBlocker {
                 Log.d(TAG, "Adding: Deny * Port 53");
 
                 // If unable to add the rules to the firewall
-                if(!sendRules(portRules))
+                if(!FW.addFirewallRules(portRules))
                 {
                     // return false (break operation)
                     return false;
@@ -124,7 +125,7 @@ public class ContentBlocker56 implements ContentBlocker {
                     Log.i(TAG, "Adding IPV4/6 rule for: " + app);
 
                     // If unable to add the rules to the firewall
-                    if(!sendRules(portRules))
+                    if(!FW.addFirewallRules(portRules))
                     {
                         //return false (break the operation)
                         return false;
@@ -150,12 +151,23 @@ public class ContentBlocker56 implements ContentBlocker {
 
             // For each whitelisted site in the database
             for (WhiteUrl whiteUrl : whiteUrls) {
-                // Remove www. www1. etc
-                // Necessary as we do it for the denylist
-                whiteUrl.url = whiteUrl.url.replaceAll("^(www)([0-9]{0,3})?(\\.)", "");
 
-                // Add to our array
-                whiteUrlsString.add(whiteUrl.url);
+                if (BlockUrlPatternsMatch.domainValid(whiteUrl.url))
+                {
+
+                    // Remove www. www1. etc
+                    // Necessary as we do it for the denylist
+                    whiteUrl.url = whiteUrl.url.replaceAll("^(www)([0-9]{0,3})?(\\.)", "");
+
+                    // Unblock the same domain with www prefix
+                    final String urlReady = "*" + whiteUrl.url;
+
+                    // Add to our array
+                    whiteUrlsString.add(urlReady);
+                } else if (BlockUrlPatternsMatch.wildcardValid(whiteUrl.url)) {
+                    // Add to our array
+                    whiteUrlsString.add(whiteUrl.url);
+                }
             }
 
             // Create a new arraylist to hold our whitelisted domains
@@ -167,7 +179,7 @@ public class ContentBlocker56 implements ContentBlocker {
             Log.i(TAG, "Adding whitelist rules.");
 
             // If unable to add the rules to the firewall
-            if(!sendRules(whiterules))
+            if(!FW.addDomainFilterRules(whiterules))
             {
                 // return false (break operation)
                 return false;
@@ -196,27 +208,52 @@ public class ContentBlocker56 implements ContentBlocker {
             // For each domain
             for (BlockUrl blockUrl : blockUrls) {
 
+                // Remove www. www1. etc
+                // Necessary as we do it for the whiteUrls, domain could get through the blocker if it doesn't start with www
+                blockUrl.url = blockUrl.url.replaceAll("^(www)([0-9]{0,3})?(\\.)", "");
+
                 // If we have a wildcard
                 if (blockUrl.url.contains("*")) {
                     // Add it exactly how it is
                     denySet.add(blockUrl.url);
                 } else {
-                    // Otherwise append a leading *
+                    // Otherwise append a leading * so that the domain with prefix www was also blocked
                     denySet.add("*" + blockUrl.url);
                 }
             }
         }
 
+        /*
+        ==============================================================
+        User defined denyList
+        ==============================================================
+        */
+
+        //Create a new UserBlockUrl list and populate it with the user defined block list
         List<UserBlockUrl> userBlockUrls = appDatabase.userBlockUrlDao().getAll2();
 
-        if (userBlockUrls != null && userBlockUrls.size() > 0) {
+        //If there are useBlockUrls values specified
+        if (!userBlockUrls.isEmpty()) {
+
+            //For each blacklisted domain
             for (UserBlockUrl userBlockUrl : userBlockUrls) {
+
                 if (BlockUrlPatternsMatch.domainValid(userBlockUrl.url))
                 {
-                    final String urlReady = "*" + userBlockUrl.url + "*";
+                    // Remove www. www1. etc
+                    // Necessary as we do it for the denylist, whiteUrls, domain could get through the blocker if it doesn't start with www
+                    userBlockUrl.url = userBlockUrl.url.replaceAll("^(www)([0-9]{0,3})?(\\.)", "");
+
+                    //Block the same domain with www prefix
+                    final String urlReady = "*" + userBlockUrl.url;
+
                     denySet.add(urlReady);
-                } else if (BlockUrlPatternsMatch.wildcardValid(userBlockUrl.url))
+
+                } else if (BlockUrlPatternsMatch.wildcardValid(userBlockUrl.url)) {
+
                     denySet.add(userBlockUrl.url);
+
+                }
             }
         }
 
@@ -254,7 +291,7 @@ public class ContentBlocker56 implements ContentBlocker {
                 Log.i(TAG, partitionDebug);
 
                 // If unable to add the rules to the firewall
-                if(!sendRules(denyrules))
+                if(!FW.addDomainFilterRules(denyrules))
                 {
                     // return false (break operation)
                     return false;
@@ -286,7 +323,7 @@ public class ContentBlocker56 implements ContentBlocker {
             }
 
             // If unable to add the rules to the firewall
-            if(!sendRules(apprules))
+            if(!FW.addDomainFilterRules(apprules))
             {
                 // return false (break operation)
                 return false;
@@ -296,6 +333,7 @@ public class ContentBlocker56 implements ContentBlocker {
         // Enable the firewall
         try {
             //FirewallResponse[] response = mFirewall.addDomainFilterRules(rules);
+            assert mFirewall != null;
             if (!mFirewall.isFirewallEnabled()) {
                 mFirewall.enableFirewall(true);
             }
@@ -310,70 +348,17 @@ public class ContentBlocker56 implements ContentBlocker {
         return true;
     }
 
-    public boolean sendRules(List<DomainFilterRule> dfRules)
-    {
-        // If there are domainfilter rules to process
-        if(!dfRules.isEmpty()) {
-
-            try
-            {
-                // Add rules to the firewall
-                FirewallResponse[] response = mFirewall.addDomainFilterRules(dfRules);
-
-                // If the domains are added successfully
-                if (FirewallResponse.Result.SUCCESS == response[0].getResult()) {
-                    // Output to debug
-                    Log.i(TAG, "Domain Filter rule(s) added successfully.");
-                } else {
-                    // Output to debug
-                    Log.e(TAG, response[0].getResult().toString());
-                    // Return enabling failed
-                    return false;
-                }
-            }
-            catch(SecurityException ex)
-            {
-                Log.e(TAG, ex.toString());
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    public boolean sendRules(FirewallRule[] fwRules)
-    {
-        // If there are firewall rules to process
-        if(fwRules.length > 0) {
-
-            try
-            {
-                // Add rules to the firewall
-                FirewallResponse[] response = mFirewall.addRules(fwRules);
-
-                if (FirewallResponse.Result.SUCCESS == response[0].getResult()) {
-                    Log.i(TAG, "Firewall rule(s) added successfully.");
-                }
-                else
-                {
-                    // Output to debug
-                    Log.d(TAG, "Firewall rule(s) skipped.");
-                }
-
-            } catch (SecurityException ex) {
-                Log.e(TAG, ex.toString());
-                return false;
-            }
-        }
-
-        return true;
-    }
 
     @Override
     public boolean disableBlocker() {
+        // Set the number of blocked domains to 0
+        BlockedUniqueUrls = 0;
+        MainActivity.updateBlockCount();
+
         FirewallResponse[] response;
         try {
             Log.i(TAG, "Clearing SABS firewall rules...");
+            assert mFirewall != null;
             response = mFirewall.clearRules(Firewall.FIREWALL_ALL_RULES);
             response = mFirewall.removeDomainFilterRules(DomainFilterRule.CLEAR_ALL);
             if (mFirewall.isFirewallEnabled()) {
@@ -395,6 +380,7 @@ public class ContentBlocker56 implements ContentBlocker {
 
     @Override
     public boolean isEnabled() {
+        assert mFirewall != null;
         return mFirewall.isFirewallEnabled();
     }
 

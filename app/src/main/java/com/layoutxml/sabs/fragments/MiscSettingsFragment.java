@@ -170,6 +170,7 @@ public class MiscSettingsFragment extends LifecycleFragment {
                 List<String> list = new ArrayList<String>();
                 list.add("com.samsung.android.themestore");
                 list.add("com.samsung.android.themecenter");
+                list.add("com.samsung.android.mateagent");
                 try {
                     List<String> addedList = appPolicy.addPackagesToPreventStartBlackList(list);
                     SharedPreferences.Editor editor = sharedPreferences.edit();

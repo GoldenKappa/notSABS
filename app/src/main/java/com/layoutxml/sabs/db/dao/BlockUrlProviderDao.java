@@ -24,8 +24,20 @@ public interface BlockUrlProviderDao {
     @Query("SELECT * FROM BlockUrlProviders WHERE selected = :selected")
     List<BlockUrlProvider> getBlockUrlProviderBySelectedFlag(int selected);
 
+    @Query("SELECT * FROM BlockUrlProviders WHERE selected = :selected AND deletable = 0")
+    List<BlockUrlProvider> getStandardListsBySelectFlag(int selected);
+
     @Query("SELECT * FROM BlockUrlProviders WHERE url = :url")
     BlockUrlProvider getByUrl(String url);
+
+    @Query("SELECT * FROM BlockUrlProviders WHERE deletable = 0")
+    List<BlockUrlProvider> getStandardLists();
+
+    @Query("SELECT * FROM BlockUrlProviders WHERE policyPackageId = 'default-policy'")
+    List<BlockUrlProvider> getStandardListsNew();
+
+    @Query("DELETE FROM blockurlproviders WHERE deletable = 0")
+    void deleteStandardLists();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     long[] insertAll(BlockUrlProvider... urlProviders);

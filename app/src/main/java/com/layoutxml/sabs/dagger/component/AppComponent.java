@@ -3,6 +3,7 @@ package com.layoutxml.sabs.dagger.component;
 import com.layoutxml.sabs.adapter.AdhellPermissionInAppsAdapter;
 import com.layoutxml.sabs.blocker.ContentBlocker20;
 import com.layoutxml.sabs.blocker.ContentBlocker56;
+import com.layoutxml.sabs.blocker.fwInterface;
 import com.layoutxml.sabs.dagger.module.AdminModule;
 import com.layoutxml.sabs.dagger.module.AppModule;
 import com.layoutxml.sabs.dagger.module.EnterpriseModule;
@@ -26,6 +27,8 @@ public interface AppComponent {
     void inject(DeviceAdminInteractor deviceAdminInteractor);
 
     void inject(ContentBlocker56 contentBlocker56);
+
+    void inject(fwInterface fwInterface);
 
     void inject(ContentBlocker20 contentBlocker20);
 

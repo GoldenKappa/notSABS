@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.layoutxml.sabs.App;
+import com.layoutxml.sabs.MainActivity;
 import com.layoutxml.sabs.db.AppDatabase;
 import com.layoutxml.sabs.db.entity.AppInfo;
 import com.layoutxml.sabs.db.entity.AppPermission;
@@ -22,6 +23,7 @@ import com.sec.enterprise.firewall.Firewall;
 import com.sec.enterprise.firewall.FirewallResponse;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -39,9 +41,10 @@ public class AdhellAppIntegrity {
     private static final String MOVE_APP_PERMISSIONS = "adhell_app_permissions_moved";
     private static final String DEFAULT_PACKAGES_FIREWALL_WHITELISTED = "default_packages_firewall_whitelisted";
     private static final String CHECK_ADHELL_STANDARD_PACKAGE = "sabs_standard_package";
-    private static final String ADHELL_STANDARD_PACKAGE = "https://raw.githubusercontent.com/LayoutXML/SABS/master/standard-package.txt";
-    private static final String SABS_MMOTTI_PACKAGE = "https://raw.githubusercontent.com/LayoutXML/SABS/master/standard-package-mmotti.txt";
     private static final String CHECK_PACKAGE_DB = "adhell_packages_filled_db";
+
+    // Create a list of our mandatory packages
+    private List<String> sabsstandardPackages = new ArrayList<>(Arrays.asList(MainActivity.PACKAGE, MainActivity.SABS_MMOTTI_PACKAGE));
 
     @Nullable
     @Inject
@@ -222,53 +225,122 @@ public class AdhellAppIntegrity {
         }
     }
 
-    public void checkAdhellStandardPackage() {
-        //Standard Package
-        BlockUrlProvider blockUrlProvider = appDatabase.blockUrlProviderDao().getByUrl(ADHELL_STANDARD_PACKAGE);
+    private void constructStandardPackages(String sabspackage, Boolean selected)
+    {
+        BlockUrlProvider blockUrlProvider = appDatabase.blockUrlProviderDao().getByUrl(sabspackage);
+
         if (blockUrlProvider == null) {
             blockUrlProvider = new BlockUrlProvider();
-            blockUrlProvider.url = ADHELL_STANDARD_PACKAGE;
+            blockUrlProvider.url = sabspackage;
             blockUrlProvider.lastUpdated = new Date();
-            blockUrlProvider.deletable = false;
-            blockUrlProvider.selected = true;
+            blockUrlProvider.deletable = true;
+            blockUrlProvider.selected = selected;
             blockUrlProvider.policyPackageId = DEFAULT_POLICY_ID;
-            long ids[] = appDatabase.blockUrlProviderDao().insertAll(blockUrlProvider);
-            blockUrlProvider.id = ids[0];
-            List<BlockUrl> blockUrls;
-            try {
-                blockUrls = BlockUrlUtils.loadBlockUrls(blockUrlProvider);
-                blockUrlProvider.count = blockUrls.size();
-                Log.d(TAG, "Number of urls to insert: " + blockUrlProvider.count);
-                appDatabase.blockUrlProviderDao().updateBlockUrlProviders(blockUrlProvider);
-                appDatabase.blockUrlDao().insertAll(blockUrls);
-            } catch (IOException e) {
-                Log.e(TAG, "Failed to download urls", e);
+            blockUrlProvider.id = appDatabase.blockUrlProviderDao().insertAll(blockUrlProvider)[0];
+
+            // Only fetch the domains if the package is selected
+            if(selected) {
+                List<BlockUrl> blockUrls;
+                try {
+                    blockUrls = BlockUrlUtils.loadBlockUrls(blockUrlProvider);
+                    blockUrlProvider.count = blockUrls.size();
+                    Log.d(TAG, "Number of urls to insert: " + blockUrlProvider.count);
+                    appDatabase.blockUrlProviderDao().updateBlockUrlProviders(blockUrlProvider);
+                    appDatabase.blockUrlDao().insertAll(blockUrls);
+                } catch (IOException e) {
+                    Log.e(TAG, "Failed to download urls", e);
+                }
             }
+
+        }
+    }
+
+    public void checkAdhellStandardPackage() {
+
+        /* Called by Main Activity */
+
+        // Get all packages
+        List<BlockUrlProvider> allProviders = appDatabase.blockUrlProviderDao().getAll2();
+        // Get all standard packages
+        List<BlockUrlProvider> standardLists = appDatabase.blockUrlProviderDao().getStandardListsNew();
+        // Get all un-deletable packages
+        List<BlockUrlProvider> ud_standardLists = appDatabase.blockUrlProviderDao().getStandardLists();
+        // Get selected un-deletable packages
+        List<BlockUrlProvider> ud_selectedStandardLists = appDatabase.blockUrlProviderDao().getStandardListsBySelectFlag(1);
+        // Create a list to hold the URL of un-deletable packages
+        List<String> ud_selectedactiveStandardListsURLS = new ArrayList<>();
+
+        /*
+            User has NO packages
+            Let's add the standard packages
+        */
+
+        if(allProviders.isEmpty())
+        {
+            // Add each standard package and select it
+            for(String standardPackage : sabsstandardPackages)
+            {
+                constructStandardPackages(standardPackage, true);
+            }
+
+            return;
         }
 
-        //mmotti's Package
-        AppDatabase mDb = AppDatabase.getAppDatabase(App.get().getApplicationContext());
-        BlockUrlProvider blockUrlProvider2 = appDatabase.blockUrlProviderDao().getByUrl(SABS_MMOTTI_PACKAGE);
-        if (blockUrlProvider2 == null) {
-            blockUrlProvider2 = new BlockUrlProvider();
-            blockUrlProvider2.url = SABS_MMOTTI_PACKAGE;
-            blockUrlProvider2.lastUpdated = new Date();
-            blockUrlProvider2.deletable = false;
-            blockUrlProvider2.selected = true;
-            blockUrlProvider2.policyPackageId = DEFAULT_POLICY_ID;
-            blockUrlProvider2.id = mDb.blockUrlProviderDao().insertAll(blockUrlProvider2)[0];
-            List<BlockUrl> blockUrls2;
-            try {
-                blockUrls2 = BlockUrlUtils.loadBlockUrls(blockUrlProvider2);
-                blockUrlProvider2.count = blockUrls2.size();
-                Log.d(TAG, "Number of urls to insert: " + blockUrlProvider2.count);
-                appDatabase.blockUrlProviderDao().updateBlockUrlProviders(blockUrlProvider2);
-                appDatabase.blockUrlDao().insertAll(blockUrls2);
-            } catch (IOException e) {
-                Log.e(TAG, "Failed to download urls", e);
+        /*
+            User has UN-DELETABLE packages
+            Let's re-add them as deletable.
+        */
+
+        if(!ud_standardLists.isEmpty())
+        {
+            // Delete them
+            appDatabase.blockUrlProviderDao().deleteStandardLists();
+
+            // If there were selected standard lists
+            if(!ud_selectedStandardLists.isEmpty())
+            {
+                // For each one, add the URL to our list
+                for(BlockUrlProvider selectedStandard : ud_selectedStandardLists)
+                {
+                    ud_selectedactiveStandardListsURLS.add(selectedStandard.url);
+                }
+            }
+
+            // For each standard package
+           for(String standardPackage : sabsstandardPackages)
+           {
+               if(ud_selectedactiveStandardListsURLS.contains(standardPackage))
+               {
+                   constructStandardPackages(standardPackage, true);
+               }
+               else
+               {
+                   constructStandardPackages(standardPackage, false);
+               }
+           }
+        }
+
+        /*
+            User has an old default package
+            Let's delete it
+        */
+
+        // If the user has standard lists
+        if(!standardLists.isEmpty())
+        {
+            // For each standard list
+            for(BlockUrlProvider standardList : standardLists)
+            {
+                String URL = standardList.url;
+
+                if(!sabsstandardPackages.contains(URL))
+                {
+                    appDatabase.blockUrlProviderDao().delete(standardList);
+                }
             }
         }
     }
+
 
     public void fillPackageDb() {
         if (appDatabase.applicationInfoDao().getAll().size() > 0) {

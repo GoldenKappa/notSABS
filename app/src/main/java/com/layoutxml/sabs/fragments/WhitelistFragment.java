@@ -16,9 +16,12 @@ import android.widget.Toast;
 
 import com.layoutxml.sabs.MainActivity;
 import com.layoutxml.sabs.R;
+import com.layoutxml.sabs.blocker.fwInterface;
 import com.layoutxml.sabs.db.AppDatabase;
 import com.layoutxml.sabs.db.entity.WhiteUrl;
 import com.layoutxml.sabs.utils.BlockUrlPatternsMatch;
+import com.sec.enterprise.AppIdentity;
+import com.sec.enterprise.firewall.DomainFilterRule;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,6 +69,10 @@ public class WhitelistFragment extends LifecycleFragment {
             String item = (String) parent.getItemAtPosition(position);
             AsyncTask.execute(() -> appDatabase.whiteUrlDao().deleteByUrl(item));
             itemsAdapter.notifyDataSetChanged();
+
+            // Remove the whitelisted domain from the firewall
+            removeDomainFilterRule(item);
+
             Toast.makeText(this.getContext(), "Url removed", Toast.LENGTH_SHORT).show();
         });
         addWhitelistUrl.setOnClickListener(v -> {
@@ -78,11 +85,75 @@ public class WhitelistFragment extends LifecycleFragment {
             AsyncTask.execute(() -> {
                 WhiteUrl whiteUrl = new WhiteUrl(urlToAdd);
                 appDatabase.whiteUrlDao().insert(whiteUrl);
+                // Add whitelist rule to the firewall
+                addDomainFilterRule(urlToAdd);
             });
             whitelistUrlEditText.setText("");
             Toast.makeText(this.getContext(), "Url has been added", Toast.LENGTH_SHORT).show();
         });
         return view;
+    }
+
+    private void addDomainFilterRule(String dfRule)
+    {
+        // Create a new instance of the firewall interface
+        fwInterface FW = new fwInterface();
+
+        // If the firewall is enabled
+        if(FW.isEnabled()) {
+            // Create an empty allowList
+            List<String> allowList = new ArrayList<>();
+
+            if (BlockUrlPatternsMatch.domainValid(dfRule))
+            {
+
+                // Remove www. www1. etc
+                // Necessary as we do it for the denylist
+                dfRule = dfRule.replaceAll("^(www)([0-9]{0,3})?(\\.)", "");
+
+                // Unblock the same domain with www prefix
+                final String urlReady = "*" + dfRule;
+
+                // Add to our array
+                allowList.add(urlReady);
+            } else if (BlockUrlPatternsMatch.wildcardValid(dfRule)) {
+                // Add to our array
+                allowList.add(dfRule);
+            }
+
+            // Create a new 'rules' arraylist
+            List<DomainFilterRule> allowrules = new ArrayList<>();
+
+            // Add the allowlist to the rules array
+            allowrules.add(new DomainFilterRule(new AppIdentity("*", null), new ArrayList<>(), allowList));
+
+            // Add the rules to the firewall
+            FW.addDomainFilterRules(allowrules);
+        }
+    }
+
+    private void removeDomainFilterRule(String dfRule)
+    {
+        // Create a new instance of the firewall interface
+        fwInterface FW = new fwInterface();
+
+        // If the firewall is enabled
+        if(FW.isEnabled()) {
+            // Create an empty allowlist
+            List<String> allowList = new ArrayList<>();
+
+            // Add the whitelisted URL
+            allowList.add(dfRule);
+
+            // Create a new 'rules' arraylist
+            List<DomainFilterRule> allowrules = new ArrayList<>();
+
+            // Add the allowlist to the rules array
+            allowrules.add(new DomainFilterRule(new AppIdentity("*", null), new ArrayList<>(), allowList));
+
+            // Add the rules to the firewall
+            FW.removeDomainFilterRules(allowrules);
+        }
     }
 
     @Override

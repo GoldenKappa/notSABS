@@ -24,7 +24,7 @@ android {
         applicationId "com.layoutxm1.sabs"
         minSdkVersion 21
         targetSdkVersion 27
-        versionCode 530
+        versionCode 557
         versionName "0.0.9"
     }
     buildTypes {

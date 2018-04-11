@@ -51,11 +51,8 @@ public class BlockUrlProviderAdapter extends ArrayAdapter<BlockUrlProvider> {
         if (blockUrlProvider != null) {
             Log.d(TAG, blockUrlProvider.url);
             switch (blockUrlProvider.url) {
-                case MainActivity.ADHELL_STANDARD_PACKAGE:
+                case MainActivity.PACKAGE:
                     blockUrlProviderTextView.setText(R.string.standard_package_name);
-                    break;
-                case MainActivity.SABS_EXPERIMENTAL_PACKAGE:
-                    blockUrlProviderTextView.setText(R.string.experimental_package);
                     break;
                 case MainActivity.SABS_MMOTTI_PACKAGE:
                     blockUrlProviderTextView.setText(R.string.mmottis_package);

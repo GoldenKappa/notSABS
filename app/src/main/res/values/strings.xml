@@ -19,7 +19,7 @@
     <string name="block_button_text_enabling">Enabling…</string>
     <string name="block_button_text_disabling">Disabling…</string>
     <string name="edit_blocked_url_list">Manage blocked domains</string>
-    <string name="whitelistInfo">Consider whitelisting the app first. You can\'t whitelist wildcards. Enter a valid domain name only. Press on a name to remove it. After whitelisting, turn blocking off then on.</string>
+    <string name="whitelistInfo">Consider whitelisting the app first. You can\'t whitelist wildcards. Enter a valid domain name only. Press on a name to remove it.</string>
     <string name="edit_blocked_apps_list">Manage blocking in apps</string>
     <string name="delete_app">Uninstall SABS</string>
     <string name="delete_app_dialog_title">Delete app</string>
@@ -37,7 +37,7 @@
     <string name="allow_custom_urls">Whitelist domains</string>
     <string name="allow">Allow</string>
     <string name="block_custom_urls">Blacklist domains</string>
-    <string name="blacklistInfo">Enter a valid domain name only. Press on a name to remove it. After blacklisting, turn blocking off then on.</string>
+    <string name="blacklistInfo">Enter a valid domain name only. Press on a name to remove it.</string>
     <string name="download_manager_sharedPrefs" translatable="false">download_manager_sharedPrefs</string>
     <string name="download_manager_reference_id" translatable="false">download_manager_reference_id</string>
     <string name="blocker_fragment_title">Blocker</string>
@@ -59,6 +59,7 @@
     <string name="subscribe_to_providers">Subscribe to providers</string>
     <string name="delete_url">Delete URL</string>
     <string name="update_all_providers">Update All</string>
+    <string name="update_selected_providers">Update Selected</string>
     <string name="error_reading_date">Error reading date</string>
     <string name="app_list_sorted_by_date">Sorted by installation date</string>
     <string name="app_list_sorted_by_alphabet">Sorted alphabetically</string>
@@ -94,11 +95,11 @@
     <string name="start">GOT IT</string>
 
     <string name="slide_1_title">Welcome!</string>
-    <string name="slide_1_desc">Simple adblocker for Samsung will let you block ads, websites, permissions and more! \nMost imporantly - it\'s <b>free</b> and <b>open source</b>.
+    <string name="slide_1_desc">SABS will let you block domains, control permissions and more! \nMost imporantly - it\'s <b>free</b> and <b>open source</b>.
     \n\nFor SABS to work you need to either change the package name in Manifest file or compile app with a changed package name yourself. Check out how to do it here: https://github.com/LayoutXML/SABS#setup</string>
 
     <string name="slide_2_title">KNOX Tools</string>
-    <string name="slide_2_desc">SABS uses Samsung\'s KNOX tools to block ads system-wide without running in background! KNOX SDK requires administrative permissions and you will be asked to grant them soon.</string>
+    <string name="slide_2_desc">SABS uses Samsung\'s KNOX tools to block domains system-wide without running in background! KNOX SDK requires administrative permissions and you will be asked to grant them soon.</string>
 
     <string name="slide_3_title">Get your free license key</string>
     <string name="slide_3_desc">You need to generate a license key first. Go to https://seap.samsung.com/enrollment and sign in with your Samsung account. Then go to https://seap.samsung.com/license-keys/create#section-knox-standard-sdk and generate a key as shown in the picture.
@@ -111,12 +112,11 @@
 </string>
 
     <string name="slide_4_title">You are ready!</string>
-    <string name="slide_4_desc">Remember - if license activation fails a couple of times, uninstall and reinstall the app.
-    \nIf you think that SABS isn\'t blocking any ads - check in recent activity. If you\'re right - turn off all adblockers (SABS, Adhell, Disconnect etc), turn on blocking in SABS and wait a minute. Then, if you want you can activate all your other apps as well.</string>
+    <string name="slide_4_desc">Remember - if license activation fails a couple of times, uninstall and reinstall the app.</string>
 
     <string name="settings_edit_url_small">Add, remove websites, subscribe to providers</string>
     <string name="change_dns_menu_small">Set DNS Address 1 and DNS Address 2</string>
-    <string name="allow_apps_menu_small">Turn off blocking in apps where you want to see ads</string>
+    <string name="allow_apps_menu_small">Turn off blocking in apps where you don\'t want to block domains</string>
     <string name="info_settings_menu">About</string>
     <string name="author">Author: LayoutXML</string>
     <string name="reddit">Reddit: <u><b>u/LayoutXML</b></u></string>
@@ -126,11 +126,11 @@
     <string name="submit_knox_key">Submit Knox Key</string>
     <string name="copy_knox_key">Copy Knox key</string>
     <string name="standard_package_name">Standard package</string>
-    <string name="whitelist_settings_small">Unblock a website if you want to see its ads or if it fails to work when blocking is enabled.</string>
-    <string name="blacklist_settings_small">Block websites that serve ads not already blocked by your current providers</string>
-    <string name="subscribe_settings_small">Add links to lists of ad serving domains</string>
+    <string name="whitelist_settings_small">Unblock a domain if you want it to load</string>
+    <string name="blacklist_settings_small">Block domains that you don\'t want to load</string>
+    <string name="subscribe_settings_small">Add blocklists with domains you wan\'t to get blocked</string>
     <string name="summary">Summary</string>
-    <string name="summary_small">Simple Ad Blocker for Samsung (SABS) is an adblocker with extra functionality that is maintained by LayoutXML. It is based on Adhell open source project.</string>
+    <string name="summary_small">SABS is an domain blocker with extra functionality that is maintained by LayoutXML and MMotti. It is based on Adhell open source project.</string>
     <string name="version">Check for updates</string>
     <string name="send_feedback">Send feedback</string>
     <string name="source_code_github">Source code (Github)</string>
@@ -161,7 +161,7 @@
     <string name="use_black_theme">Use black theme</string>
     <string name="use_black_theme_desc">Set the theme to AMOLED black and restart the app</string>
     <string name="block_port_53">Block Port 53</string>
-    <string name="block_port_53_desc">Block Port 53 on Chrome (Stable, Canary, Beta, Dev) so that ads can be blocked on these apps. After changing value, turn blocking off and on</string>
+    <string name="block_port_53_desc">Block Port 53 on Chrome (Stable, Canary, Beta, Dev) so that domains could be blocked on these apps. After changing value, turn blocking off and on</string>
     <string name="miscblockall_desc">Block Port 53 in all apps (not recommended)</string>
     <string name="experimental_package">Experimental package</string>
     <string name="mmottis_package">mmotti\'s package</string>
