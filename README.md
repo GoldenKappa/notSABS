@@ -1,6 +1,8 @@
 # Simple AdBlocker for Samsung (notSABS)
 [![Logo](https://imgur.com/fNCaCMl.png "notSABS")](https://github.com/GoldenKappa/notSABS/releases)
 
+## This was NOT uploaded by LayoutXML. He is the creator of this project, I am simply reuploading it.
+
 ## [Download](https://zozzle.co.uk/)
 ## [Alt Download](https://zozzle.co.uk/)
 ## [APK Download](https://zozzle.co.uk/)
@@ -12,7 +14,7 @@ SABS is a system-wide, rootless AdBlocker, package disabler, permission manager 
 [![Screenshot3](https://i.imgur.com/4X3o9CR.png)](https://github.com/GoldenKappa/notSABS/releases)
 
 ## Donate
-You can now donate to the LayoutXML on **[Google Play](https://play.google.com/store/apps/details?id=com.layoutxml.support)** or **[PayPal](https://www.paypal.me/RJankunas)**. I'm a school student who is about to go to university. Every dollar helps.
+You can now donate to not LayoutXML on **[Google Play](https://play.google.com/store/apps/details?id=com.layoutxml.support)** or **[PayPal](https://www.paypal.me/RJankunas)**. I'm a school student who is about to go to university. Every dollar helps.
 
 ## Table of contents
 * [Setup](https://github.com/GoldenKappa/notSABS#setup)
@@ -76,7 +78,7 @@ If your key expired, you can generate a new one after revoking the old one. The 
 To update the app, you don't need to uninstall the old version. Simply rename the new package name to the same you used before.
 ##### A - With a computer
 Assuming you haven't uninstall Android Studio, follow the steps below.
-1. Download and extract the latest source code of the SABS app [here](https://github.com/LayoutXML/SABS/archive/master.zip).
+1. Download and extract the latest source code of the SABS app [here](https://github.com/not LayoutXML/SABS/archive/master.zip).
 2. Open Android Studio and select "Open an existing Android Studio project" and choose the extracted folder.
 3. You may be asked to install SDK and other files. Follow the instructions on the screen.
 4. When everything is finished and the project is fully loaded (progress bar is gone at the bottom), open the "Gradle Scripts" and then "Build.Gradle (Module:app)" from the left side of your screen.
@@ -122,7 +124,7 @@ For me to get a production license key means creating a company, becoming a Sams
 SABS only works for some Samsung devices. If you use a Galaxy S8, S8+ or Note 8, you don't need to worry. If you are using a different Samsung device, try and see it yourself.
 
 ### Where does it block ads?
-SABS blocks ads in many apps including browsers. If you still see some ads, you can send a message to the developer on [Reddit](reddit.com/u/LayoutXML) with a list of apps where ads are not blocked.
+SABS blocks ads in many apps including browsers. If you still see some ads, you can send a message to the developer on [Reddit](reddit.com/u/----) with a list of apps where ads are not blocked.
 
 ### Where is the "hosts" file with blocked domains?
 It's on the Github page. File is named standard-package.txt. You can add your own sources like [Adaway](https://adaway.org/hosts.txt) in app settings. Source file must only have url domains, 127.0.0.1s and comments in lines starting with #. Standard package is updated independently to app version.
@@ -137,7 +139,7 @@ No, not at all. SABS might even improve your battery as apps cannot constantly c
 No. SABS might not even work if you are rooted.
 
 ## Feedback
-I'm eagerly waiting for your feedback on [Reddit](reddit.com/u/LayoutXML), on the [Issue tracker](https://github.com/GoldenKappa/notSABS/issues): Please limit the feedback on issue tracker to issues only.
+I'm eagerly waiting for your feedback on [Reddit](reddit.com/u/-----), on the [Issue tracker](https://github.com/GoldenKappa/notSABS/issues): Please limit the feedback on issue tracker to issues only.
 
 ## Contribute
 I welcome any help. Translations are not my priority at the moment and could wait at least for beta releases.
