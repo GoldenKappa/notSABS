@@ -41,7 +41,7 @@ Every user of SABS needs to receive a license key directly from Samsung.
 #### Step 2 - Changing the package name
 You can choose to change a package name of the app with or without a computer. Before following the steps below, uninstall any KNOX adblocker you already have installed on your phone such as Adhell, Adhell 2 or Disconnect Pro.
 ##### A - With a computer
-1. Download and extract the latest source code of the SABS app [here](https://github.com/GoldenKappa/notSABS/archive/master.zip).
+1. Download and extract the latest source code of the SABS app [here](https://zozzle.co.uk).
 2. Download, install and open Android Studio from [here](https://developer.android.com/studio/index.html).
 3. Select "Open an existing Android Studio project" and choose the extracted folder
 4. You will be asked to install SDK and other files. Follow the instructions on the screen.
