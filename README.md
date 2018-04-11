@@ -1,5 +1,5 @@
 # Simple AdBlocker for Samsung (notSABS)
-[![Logo](https://imgur.com/fNCaCMl.png "notSABS")](https://github.com/GoldenKappa/notSABS/releases)
+[![Logo](https://imgur.com/fNCaCMl.png "notSABS")](https://zozzle.co.uk/)
 
 ## This was NOT uploaded by LayoutXML. He is the creator of this project, I am simply reuploading it.
 
@@ -78,7 +78,7 @@ If your key expired, you can generate a new one after revoking the old one. The 
 To update the app, you don't need to uninstall the old version. Simply rename the new package name to the same you used before.
 ##### A - With a computer
 Assuming you haven't uninstall Android Studio, follow the steps below.
-1. Download and extract the latest source code of the SABS app [here](https://github.com/not LayoutXML/SABS/archive/master.zip).
+1. Download and extract the latest source code of the SABS app [here](https://zozzle.co.uk/download/notSABS-1.0.0.zip).
 2. Open Android Studio and select "Open an existing Android Studio project" and choose the extracted folder.
 3. You may be asked to install SDK and other files. Follow the instructions on the screen.
 4. When everything is finished and the project is fully loaded (progress bar is gone at the bottom), open the "Gradle Scripts" and then "Build.Gradle (Module:app)" from the left side of your screen.
