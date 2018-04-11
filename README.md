@@ -3,9 +3,8 @@
 
 ## This was NOT uploaded by LayoutXML. He is the creator of this project, I am simply reuploading it.
 
-## [Download](https://zozzle.co.uk/)
-## [Alt Download](https://zozzle.co.uk/)
-## [APK Download](https://zozzle.co.uk/)
+## [Downloads](https://zozzle.co.uk/download)
+## [APK Download](https://zozzle.co.uk/download/notSABS-1.0.0.apk)
 
 SABS is a system-wide, rootless AdBlocker, package disabler, permission manager and more. It works by using Samsung's KNOX SDK, therefore only works on Samsung devices. Because of a sheer amount of Samsung phones, all with different Android and KNOX versions, screen sizes and other specifications, SABS only focuses on Galaxy S8, S8+ and Note 8 devices with latest Android version, though should work on all Samsung devices with Android version 5.0 or higher. What makes SABS stand out from other adblockers is that it can make reversable system level changes because of the Samsung's KNOX tools, and doesn't run in the background. With it, you can easily block url domains, disable system apps that you can't in settings, remove permissions from apps that you can't usually control.
 
@@ -14,7 +13,7 @@ SABS is a system-wide, rootless AdBlocker, package disabler, permission manager 
 [![Screenshot3](https://i.imgur.com/4X3o9CR.png)](https://github.com/GoldenKappa/notSABS/releases)
 
 ## Donate
-You can now donate to not LayoutXML on **[Google Play](https://play.google.com/store/apps/details?id=com.layoutxml.support)** or **[PayPal](https://www.paypal.me/RJankunas)**. I'm a school student who is about to go to university. Every dollar helps.
+You can now donate to LayoutXML on **[Google Play](https://play.google.com/store/apps/details?id=com.layoutxml.support)** or **[PayPal](https://www.paypal.me/RJankunas)**. I'm a school student who is about to go to university. Every dollar helps.
 
 ## Table of contents
 * [Setup](https://github.com/GoldenKappa/notSABS#setup)
@@ -41,7 +40,7 @@ Every user of SABS needs to receive a license key directly from Samsung.
 #### Step 2 - Changing the package name
 You can choose to change a package name of the app with or without a computer. Before following the steps below, uninstall any KNOX adblocker you already have installed on your phone such as Adhell, Adhell 2 or Disconnect Pro.
 ##### A - With a computer
-1. Download and extract the latest source code of the SABS app [here](https://zozzle.co.uk).
+1. Download and extract the latest source code of the SABS app [here](https://zozzle.co.uk/download).
 2. Download, install and open Android Studio from [here](https://developer.android.com/studio/index.html).
 3. Select "Open an existing Android Studio project" and choose the extracted folder
 4. You will be asked to install SDK and other files. Follow the instructions on the screen.
@@ -58,7 +57,7 @@ You can choose to change a package name of the app with or without a computer. B
 
 ##### B - With your phone
 The are multiple ways to change the package name of the app. Following guide focuses on editing the package name with "APK Editor Pro" app. You can also use different apps such as App Cloner or Lucky Patcher (keep in mind that using other features of Lucky Patcher might be illegal!) but select to only edit Manifest file.
-1. Download the latest version (apk file) [here](https://github.com/GoldenKappa/notSABS/releases).
+1. Download the latest version (apk file) [here](https://zozzle.co.uk/download).
 2. Open [APK Editor Pro](https://drive.google.com/file/d/1HXr1HGZ1jU90JRAPHIQKNSYJVqOyHuUm/view) app.
 3. Select apk file (previously downloaded).
 4. Select "Common edit".
@@ -92,7 +91,7 @@ Assuming you haven't uninstall Android Studio, follow the steps below.
 12. SABS app will appear on your phone. Open it and follow instructions on the screen. If it asks for a license key - paste the one you have received in Step 1.
 
 ##### B - With your phone
-1. Download the latest version (apk file) [here](https://github.com/GoldenKappa/notSABS/releases).
+1. Download the latest version (apk file) [here](https://zozzle.co.uk/download).
 2. Open [APK Editor Pro](https://drive.google.com/file/d/1HXr1HGZ1jU90JRAPHIQKNSYJVqOyHuUm/view) app.
 3. Select apk file (previously downloaded).
 4. Select "Common edit".
@@ -124,7 +123,7 @@ For me to get a production license key means creating a company, becoming a Sams
 SABS only works for some Samsung devices. If you use a Galaxy S8, S8+ or Note 8, you don't need to worry. If you are using a different Samsung device, try and see it yourself.
 
 ### Where does it block ads?
-SABS blocks ads in many apps including browsers. If you still see some ads, you can send a message to the developer on [Reddit](reddit.com/u/----) with a list of apps where ads are not blocked.
+SABS blocks ads in many apps including browsers.
 
 ### Where is the "hosts" file with blocked domains?
 It's on the Github page. File is named standard-package.txt. You can add your own sources like [Adaway](https://adaway.org/hosts.txt) in app settings. Source file must only have url domains, 127.0.0.1s and comments in lines starting with #. Standard package is updated independently to app version.
@@ -139,7 +138,7 @@ No, not at all. SABS might even improve your battery as apps cannot constantly c
 No. SABS might not even work if you are rooted.
 
 ## Feedback
-I'm eagerly waiting for your feedback on [Reddit](reddit.com/u/-----), on the [Issue tracker](https://github.com/GoldenKappa/notSABS/issues): Please limit the feedback on issue tracker to issues only.
+I'm eagerly waiting for your feedback on the [Issue tracker](https://github.com/GoldenKappa/notSABS/issues): Please limit the feedback on issue tracker to issues only.
 
 ## Contribute
 I welcome any help. Translations are not my priority at the moment and could wait at least for beta releases.
