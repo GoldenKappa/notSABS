@@ -3,19 +3,21 @@
 
 ## This was NOT uploaded by LayoutXML. He is the creator of this project, I am simply reuploading it.
 
+## Disclaimer: You, the user are taking full responsibility for what happens after you download this.
+
 ## [Downloads](https://zozzle.co.uk/download)
 ## [APK Download](https://zozzle.co.uk/download/notSABS-1.0.0.apk)
 ## [APKEditorPro](https://zozzle.co.uk/download/APKEditorPro-1.8.28.apk)
 ## [1.0.0 Changelog](https://pastebin.com/TJBujcrh)
 
-SABS is a system-wide, rootless AdBlocker, package disabler, permission manager and more. It works by using Samsung's KNOX SDK, therefore only works on Samsung devices. Because of a sheer amount of Samsung phones, all with different Android and KNOX versions, screen sizes and other specifications, SABS only focuses on Galaxy S8, S8+ and Note 8 devices with latest Android version, though should work on all Samsung devices with Android version 5.0 or higher. What makes SABS stand out from other adblockers is that it can make reversable system level changes because of the Samsung's KNOX tools, and doesn't run in the background. With it, you can easily block url domains, disable system apps that you can't in settings, remove permissions from apps that you can't usually control.
+SABS is a system-wide, rootless AdBlocker, package disabler, permission manager and more. Because of a sheer amount of Samsung phones, all with different Android and KNOX versions, screen sizes and other specifications, SABS only focuses on Galaxy S8, S8+ and Note 8 devices with latest Android version, though should work on all Samsung devices with Android version 5.0 or higher. With it, you can easily block url domains, disable system apps that you can't in settings, remove permissions from apps that you can't usually control.
 
 [![Screenshot1](https://imgur.com/OyYfMtZ.png)](https://github.com/GoldenKappa/notSABS/releases)
 [![Screenshot2](https://imgur.com/EZPirSP.png)](https://github.com/GoldenKappa/notSABS/releases)
 [![Screenshot3](https://i.imgur.com/4X3o9CR.png)](https://github.com/GoldenKappa/notSABS/releases)
 
 ## Donate
-You can now donate to LayoutXML on **[Google Play](https://play.google.com/store/apps/details?id=com.layoutxml.support)** or **[PayPal](https://www.paypal.me/RJankunas)**. I'm a school student who is about to go to university. Every dollar helps.
+You can now donate on **[Google Play](https://play.google.com/store/apps/details?id=com.layoutxml.support)** or **[PayPal](https://www.paypal.me/RJankunas)**.
 
 ## Table of contents
 * [Setup](https://github.com/GoldenKappa/notSABS#setup)
@@ -112,11 +114,6 @@ Assuming you haven't uninstall Android Studio, follow the steps below.
 * Some apps that need internet or websites might work incorrectly if their domain is blocked. Whitelist them in settings. It is recommended to whitelist some Google apps such as Allo, Duo, Music.
 
 ## FAQ
-
-### Is using SABS legal?
-Yes, getting a free license key from Samsung is legal and using it in SABS does not violate any terms and conditions assuming you call yourself a developer.
-
-Blocking ads itself is also not illegal but it's a moral grey area. Ask yourself - do you want to support app developers and website creators? If yes, then don't use an adblocker or whitelist those apps or websites in settings. Remember that by not blocking ads you are letting companies track websites you use and spy on you.
 
 ### Why do I have to get my own key?
 For me to get a production license key means creating a company, becoming a Samsung's partner or buying an expensive license key from Samsung's partners. I can't afford that and developing SABS is just my hobby.
