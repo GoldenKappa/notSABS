@@ -1,6 +1,8 @@
 # Simple AdBlocker for Samsung (notSABS)
 [![Logo](https://imgur.com/fNCaCMl.png "notSABS")](https://zozzle.co.uk/)
 
+## Samsung removed the Legacy SDK section on their SEAP page, generating an Samsung EDU SDK key is confirmed to work! Follow the updated instructions below.
+
 ## This was NOT uploaded by LayoutXML. He is the creator of this project, I am simply reuploading it.
 
 ## Disclaimer: You, the user are taking full responsibility for what happens after you download this.
@@ -33,8 +35,8 @@ There are two things you have to do to get a working version of SABS - get a Sam
 #### Step 1 - Getting a Samsung license key
 Every user of SABS needs to receive a license key directly from Samsung.
 1. Sign in [here](https://seap.samsung.com/enrollment) with your Samsung account.
-2. Go [here](https://seap.samsung.com/license-keys/create#section-knox-standard-sdk).
-3. Go to "Legacy SDKs" (Steps 3-7 are demonstrated in [the picture here](https://i.imgur.com/LTAdkpW.png)).
+2. Go [here](https://seap.samsung.com/license-keys/create#section-samsung-edu-sdk).
+3. Go to "Samsung EDU SDK" (Steps 3-7 are demonstrated in [the picture here](https://i.imgur.com/v7zcsxb.png)).
 4. Go to "Knox Standard SDK".
 5. Select "Enterprise license key".
 6. Write any word in alias.
@@ -150,6 +152,7 @@ As a student (at school) with no background in Android development I'm strugglin
 These wonderful people have contributed to the open source project SABS or its predecessor Adhell either directly or indirectly:
 * LayoutXML (the dev!)
 * raiym
+* GoldenKappa
 * ca0ss
 * MilanParikh
 * tarquinn18
