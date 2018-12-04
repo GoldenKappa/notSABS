@@ -35,7 +35,7 @@ There are two things you have to do to get a working version of SABS - get a Sam
 #### Step 1 - Getting a Samsung license key
 Every user of SABS needs to receive a license key directly from Samsung.
 1. Sign in [here](https://seap.samsung.com/enrollment) with your Samsung account.
-2. Go [here](https://seap.samsung.com/license-keys/create#section-samsung-edu-sdk).
+2. Go [here](https://seap.samsung.com/license-keys/generate/edu).
 3. Go to "Samsung EDU SDK" (Steps 3-7 are demonstrated in [the picture here](https://i.imgur.com/v7zcsxb.png)).
 4. Go to "Knox Standard SDK".
 5. Select "Enterprise license key".
